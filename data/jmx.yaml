@@ -1,0 +1,8 @@
+docker_images:
+  - my-java-app
+
+init_config:
+
+instances:
+  - host: '%%host%%'
+    port: '%%port%%'
