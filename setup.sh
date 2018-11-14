@@ -30,7 +30,7 @@ sudo docker run hello-world
 #Directory from which auto_conf yamls will be mounted to the agent container
 sudo mkdir /opt/dd-agent-auto_conf
 
-sudo cp <PATH_TO_REPO>/data/jmx.yaml /opt/dd-agent-auto_conf/jmx.yaml
+sudo cp <PATH_TO_THIS_REPO>/data/jmx.yaml /opt/dd-agent-auto_conf/jmx.yaml
 
 # Uncomment for Amazon Linux
 docker run -d --name dd-agent \
@@ -38,7 +38,7 @@ docker run -d --name dd-agent \
   -v /proc/:/host/proc/:ro \
   -v /cgroup/:/host/sys/fs/cgroup:ro \
   -v /opt/datadog-agent-conf.d:/conf.d:ro \
-  -e DD_API_KEY="<YOUR_API_KEY" \
+  -e DD_API_KEY="<PASTE_YOUR_API_KEY_HERE>" \
   -e DD_HOSTNAME="$HOSTNAME.jmx-service-discovery" \
   -e DD_DOGSTATSD_ORIGIN_DETECTION=true \
   -e DD_DOGSTATSD_NON_LOCAL_TRAFFIC=true \
@@ -69,6 +69,6 @@ docker run -d --name dd-agent \
 sudo docker restart dd-agent
 
 #Build and run sample java app
-cd <PATH_TO_REPO>/data
+cd <PATH_TO_THIS_REPO>/data
 sudo docker build -t my-java-app .
 sudo docker run -d --name some-java my-java-app
